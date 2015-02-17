@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 
+@protocol TweetsTableViewCellDelegate <NSObject>
+- (void)didTapProfileImageForUser:(User *)user;
+@end
+
 @interface TweetsTableCell : UITableViewCell
 @property (nonatomic, strong) Tweet *tweet;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (nonatomic, weak) id<TweetsTableViewCellDelegate> delegate;
 @end

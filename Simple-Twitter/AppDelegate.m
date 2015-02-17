@@ -11,7 +11,8 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "TweetsViewController.h"
-
+#import "SlideViewController.h"
+#import "SlideMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,13 +31,22 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:UserDidLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin) name:UserDidLoginNotification object:nil];
+    
     User *user = [User currentUser];
     if (user != nil) {
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
-        self.window.rootViewController = nvc;
+        TweetsViewController *controller = [[TweetsViewController alloc] init];
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
+        nvc.navigationBar.translucent = NO;
+        SlideMenuViewController *menuVc = [[SlideMenuViewController alloc] init];
+        SlideViewController *slideVc = [[SlideViewController alloc] init];
+        menuVc.delegate = controller;
+        slideVc.mainViewController = nvc;
+        slideVc.slideMenuController = menuVc;
+        self.window.rootViewController = slideVc;
     } else {
         self.window.rootViewController = [[LoginViewController alloc] init];
     }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

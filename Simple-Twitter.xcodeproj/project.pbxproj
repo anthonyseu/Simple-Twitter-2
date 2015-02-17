@@ -12,6 +12,15 @@
 		365E53121A8696E800339791 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365E53111A8696E800339791 /* Images.xcassets */; };
 		365E53151A8696E800339791 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365E53131A8696E800339791 /* LaunchScreen.xib */; };
 		365E53211A8696E800339791 /* Simple_TwitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365E53201A8696E800339791 /* Simple_TwitterTests.m */; };
+		3694ECA91A9195D400490032 /* SlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECA71A9195D400490032 /* SlideMenuViewController.m */; };
+		3694ECAA1A9195D400490032 /* SlideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECA81A9195D400490032 /* SlideMenuViewController.xib */; };
+		3694ECAD1A91C3F200490032 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECAC1A91C3F200490032 /* SlideViewController.m */; };
+		3694ECB11A91DE3600490032 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECAF1A91DE3600490032 /* UserProfileViewController.m */; };
+		3694ECB21A91DE3600490032 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECB01A91DE3600490032 /* UserProfileViewController.xib */; };
+		3694ECB61A92DAA000490032 /* UserStatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECB41A92DAA000490032 /* UserStatsCell.m */; };
+		3694ECB71A92DAA000490032 /* UserStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECB51A92DAA000490032 /* UserStatsCell.xib */; };
+		3694ECBB1A92DAE000490032 /* ProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */; };
+		3694ECBC1A92DAE000490032 /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */; };
 		369FB6851A87FB8000EA0CAE /* TweetsDetailUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FB6831A87FB8000EA0CAE /* TweetsDetailUViewController.m */; };
 		369FB6861A87FB8000EA0CAE /* TweetsDetailUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369FB6841A87FB8000EA0CAE /* TweetsDetailUViewController.xib */; };
 		369FB68A1A87FBBD00EA0CAE /* ComposeTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FB6881A87FBBD00EA0CAE /* ComposeTweetViewController.m */; };
@@ -50,6 +59,20 @@
 		365E531A1A8696E800339791 /* Simple-TwitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple-TwitterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		365E531F1A8696E800339791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		365E53201A8696E800339791 /* Simple_TwitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Simple_TwitterTests.m; sourceTree = "<group>"; };
+		3694ECA61A9195D400490032 /* SlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideMenuViewController.h; sourceTree = "<group>"; };
+		3694ECA71A9195D400490032 /* SlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideMenuViewController.m; sourceTree = "<group>"; };
+		3694ECA81A9195D400490032 /* SlideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideMenuViewController.xib; sourceTree = "<group>"; };
+		3694ECAB1A91C3F200490032 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
+		3694ECAC1A91C3F200490032 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
+		3694ECAE1A91DE3600490032 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		3694ECAF1A91DE3600490032 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		3694ECB01A91DE3600490032 /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
+		3694ECB31A92DAA000490032 /* UserStatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatsCell.h; sourceTree = "<group>"; };
+		3694ECB41A92DAA000490032 /* UserStatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStatsCell.m; sourceTree = "<group>"; };
+		3694ECB51A92DAA000490032 /* UserStatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserStatsCell.xib; sourceTree = "<group>"; };
+		3694ECB81A92DAE000490032 /* ProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCell.h; sourceTree = "<group>"; };
+		3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCell.m; sourceTree = "<group>"; };
+		3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
 		369FB6821A87FB8000EA0CAE /* TweetsDetailUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsDetailUViewController.h; sourceTree = "<group>"; };
 		369FB6831A87FB8000EA0CAE /* TweetsDetailUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsDetailUViewController.m; sourceTree = "<group>"; };
 		369FB6841A87FB8000EA0CAE /* TweetsDetailUViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsDetailUViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +214,14 @@
 				369FB6871A87FBBD00EA0CAE /* ComposeTweetViewController.h */,
 				369FB6881A87FBBD00EA0CAE /* ComposeTweetViewController.m */,
 				369FB6891A87FBBD00EA0CAE /* ComposeTweetViewController.xib */,
+				3694ECA61A9195D400490032 /* SlideMenuViewController.h */,
+				3694ECA71A9195D400490032 /* SlideMenuViewController.m */,
+				3694ECA81A9195D400490032 /* SlideMenuViewController.xib */,
+				3694ECAB1A91C3F200490032 /* SlideViewController.h */,
+				3694ECAC1A91C3F200490032 /* SlideViewController.m */,
+				3694ECAE1A91DE3600490032 /* UserProfileViewController.h */,
+				3694ECAF1A91DE3600490032 /* UserProfileViewController.m */,
+				3694ECB01A91DE3600490032 /* UserProfileViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -201,6 +232,12 @@
 				36A9E8881A87511A0072205C /* TweetsTableCell.h */,
 				36A9E8891A87511A0072205C /* TweetsTableCell.m */,
 				36A9E88A1A87511A0072205C /* TweetsTableCell.xib */,
+				3694ECB31A92DAA000490032 /* UserStatsCell.h */,
+				3694ECB41A92DAA000490032 /* UserStatsCell.m */,
+				3694ECB51A92DAA000490032 /* UserStatsCell.xib */,
+				3694ECB81A92DAE000490032 /* ProfileHeaderCell.h */,
+				3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */,
+				3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -305,10 +342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				36A9E88C1A87511A0072205C /* TweetsTableCell.xib in Resources */,
+				3694ECAA1A9195D400490032 /* SlideMenuViewController.xib in Resources */,
 				36A9E8871A8745820072205C /* TweetsViewController.xib in Resources */,
 				365E53151A8696E800339791 /* LaunchScreen.xib in Resources */,
 				369FB6861A87FB8000EA0CAE /* TweetsDetailUViewController.xib in Resources */,
 				369FB68B1A87FBBD00EA0CAE /* ComposeTweetViewController.xib in Resources */,
+				3694ECB71A92DAA000490032 /* UserStatsCell.xib in Resources */,
+				3694ECBC1A92DAE000490032 /* ProfileHeaderCell.xib in Resources */,
+				3694ECB21A91DE3600490032 /* UserProfileViewController.xib in Resources */,
 				365E53121A8696E800339791 /* Images.xcassets in Resources */,
 				36A9E8781A86A9CE0072205C /* LoginViewController.xib in Resources */,
 			);
@@ -363,14 +404,19 @@
 			files = (
 				36A9E88B1A87511A0072205C /* TweetsTableCell.m in Sources */,
 				36A9E87C1A86AAAD0072205C /* TwitterClient.m in Sources */,
+				3694ECB61A92DAA000490032 /* UserStatsCell.m in Sources */,
 				365E530A1A8696E800339791 /* AppDelegate.m in Sources */,
 				369FB68A1A87FBBD00EA0CAE /* ComposeTweetViewController.m in Sources */,
+				3694ECBB1A92DAE000490032 /* ProfileHeaderCell.m in Sources */,
 				36A9E8821A86FAD30072205C /* User.m in Sources */,
 				36A9E87F1A86FAB60072205C /* Tweet.m in Sources */,
 				365E53071A8696E800339791 /* main.m in Sources */,
 				36A9E8771A86A9CE0072205C /* LoginViewController.m in Sources */,
+				3694ECAD1A91C3F200490032 /* SlideViewController.m in Sources */,
 				369FB6851A87FB8000EA0CAE /* TweetsDetailUViewController.m in Sources */,
+				3694ECB11A91DE3600490032 /* UserProfileViewController.m in Sources */,
 				36A9E8861A8745820072205C /* TweetsViewController.m in Sources */,
+				3694ECA91A9195D400490032 /* SlideMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

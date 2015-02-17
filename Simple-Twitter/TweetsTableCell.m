@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabelView;
 @property (weak, nonatomic) IBOutlet UILabel *userScreenNameLabelView;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabelView;
+@property (nonatomic, strong) User *author;
 @end
 
 @implementation TweetsTableCell
@@ -31,6 +32,11 @@
     if (self.tweet.retweetOn) {
         [self.retweetButton setImage:[UIImage imageNamed:@"retweet_on.png"] forState:nil];
     }
+    
+    UITapGestureRecognizer *profileImageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onProfileImage:)];
+    profileImageTap.numberOfTapsRequired = 1;
+    self.profileImageView.userInteractionEnabled = YES;
+    [self.profileImageView addGestureRecognizer:profileImageTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,11 +51,16 @@
     self.userScreenNameLabelView.text = [NSString stringWithFormat:@"@%@", tweet.user.screenname];
     self.tweetTextLabelView.text = tweet.text;
     self.createdAtLabelView.text = tweet.createdAt.shortTimeAgoSinceNow;
+    self.author = tweet.user;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.contentView layoutIfNeeded];
     self.tweetTextLabelView.preferredMaxLayoutWidth = self.tweetTextLabelView.frame.size.width;
+}
+
+- (void)onProfileImage:(UIGestureRecognizer *)gestureRecognizer {
+    [self.delegate didTapProfileImageForUser:self.author];
 }
 @end

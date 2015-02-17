@@ -13,22 +13,25 @@
 #import "TweetsTableCell.h"
 #import "ComposeTweetViewController.h"
 #import "TweetsDetailUViewController.h"
+#import "SlideMenuViewController.h"
+#import "UserProfileViewController.h"
+#import "SlideViewController.h"
 
-@interface TweetsViewController () <ComposeTweetViewControllerDelegate, TweetsDetailDelegate>
+@interface TweetsViewController () <ComposeTweetViewControllerDelegate, TweetsDetailDelegate, SlideMenuDelegate, TweetsTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (strong, nonatomic) NSMutableArray *tweetsArray;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSString *type;
 @end
 
 @implementation TweetsViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     // navigation bar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
-    self.navigationItem.title = @"Tweets";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger"] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuButton:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compose"] style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
+    self.navigationItem.title = @"Home";
 
     // table view
     self.tweetsTableView.dataSource = self;
@@ -41,10 +44,7 @@
     [self.refreshControl addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tweetsTableView insertSubview:self.refreshControl atIndex:0];
     
-    [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-        self.tweetsArray = [[NSMutableArray alloc] initWithArray:tweets];
-        [self.tweetsTableView reloadData];
-    }];
+    [self reload];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -53,8 +53,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onLogoutButton {
-    [User logout];
+# pragma event handler
+- (void)onMenuButton:(id)sender {
+    if (self.navigationController.parentViewController && [self.navigationController.parentViewController isKindOfClass:SlideViewController.class]) {
+        [(SlideViewController *)self.navigationController.parentViewController toggleMenu];
+    }
 }
 
 - (void)onComposeButton {
@@ -71,6 +74,14 @@
     }];
 }
 
+#pragma mark - Tweet table view cell delegate
+- (void)didTapProfileImageForUser:(User *)user {
+    UserProfileViewController *vc = [[UserProfileViewController alloc] init];
+    vc.user = user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - TweetsDetailDelegate
 - (IBAction)onCellReplyButton:(UIButton *)sender {
     Tweet *tweet = [self.tweetsArray objectAtIndex:sender.tag];
     ComposeTweetViewController *vc = [[ComposeTweetViewController alloc] init];
@@ -129,6 +140,8 @@
     }
 }
 
+#pragma mark - ComposeTweetViewControllerDelegate
+
 - (void)didPostTweet:(Tweet *)tweet {
     [self.tweetsArray insertObject:tweet atIndex:0];
     [self.tweetsTableView reloadData];
@@ -156,6 +169,36 @@
     [self.tweetsTableView reloadData];
 }
 
+#pragma mark - slide menu view delegate
+- (void)didSelectMenu:(SlideMenuItem)menuItem {
+    switch (menuItem) {
+        case SlideMenuItemProfile:
+            [self didTapProfileImageForUser:[User currentUser]];
+            break;
+        case SlideMenuItemTimeline:
+            self.type = @"home_timeline";
+            [self reload];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            break;
+        case SlideMenuItemMetions:
+            self.type = @"mention_timeline";
+            [self reload];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            break;
+        case SlideMenuItemLogout:
+            [User logout];
+            break;
+        default:
+            break;
+    }
+    
+    // dismiss menu
+    if (self.navigationController.parentViewController && [self.navigationController.parentViewController isKindOfClass:SlideViewController.class]) {
+        [(SlideViewController *)self.navigationController.parentViewController dismissMenu];
+    }
+}
+
+#pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweetsArray.count;
 }
@@ -164,7 +207,7 @@
     TweetsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetsTableCell"];
     Tweet *tweet = self.tweetsArray[indexPath.row];
     cell.tweet = tweet;
-
+    
     // cell buttons
     cell.replyButton.tag = indexPath.row;
     [cell.replyButton addTarget:self action:@selector(onCellReplyButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -184,6 +227,7 @@
     } else {
         [cell.retweetButton setImage:[UIImage imageNamed:@"retweet.png"] forState:nil];
     }
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -202,6 +246,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+#pragma mark - private method
+- (void)reload {
+    // get initial home time line tweets
+    if (!self.type || [self.type isEqualToString:@"home_timeline"]) {
+        [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweetsArray = [[NSMutableArray alloc] initWithArray:tweets];
+            [self.tweetsTableView reloadData];
+        }];
+    } else if ([self.type isEqualToString:@"mention_timeline"]){
+        [[TwitterClient sharedInstance] mentionTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweetsArray = [[NSMutableArray alloc] initWithArray:tweets];
+            [self.tweetsTableView reloadData];
+        }];
+    }
 }
 
 /*

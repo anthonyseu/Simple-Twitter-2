@@ -12,20 +12,24 @@
 	<dict>
 		<key>1B17E1C33BA4531808FE1AFD9AF72384B0852396</key>
 		<string>github.com:anthonyseu/Simple-Twitter.git</string>
+		<key>FEB9F8CB053ED4BB9F2B924A0A2D2C3F0FB615E7</key>
+		<string>github.com:anthonyseu/Simple-Twitter-2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Simple-Twitter.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1B17E1C33BA4531808FE1AFD9AF72384B0852396</key>
+		<string>../../Simple-Twitter</string>
+		<key>FEB9F8CB053ED4BB9F2B924A0A2D2C3F0FB615E7</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:anthonyseu/Simple-Twitter.git</string>
+	<string>github.com:anthonyseu/Simple-Twitter-2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1B17E1C33BA4531808FE1AFD9AF72384B0852396</string>
+	<string>FEB9F8CB053ED4BB9F2B924A0A2D2C3F0FB615E7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>1B17E1C33BA4531808FE1AFD9AF72384B0852396</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Simple-Twitter</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FEB9F8CB053ED4BB9F2B924A0A2D2C3F0FB615E7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Simple-Twitter-2</string>
 		</dict>
 	</array>
 </dict>

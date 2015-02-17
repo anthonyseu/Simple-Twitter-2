@@ -51,6 +51,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         [self.requestSerializer saveAccessToken:accessToken];
         
         [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Result %@", responseObject);
             User *user = [[User alloc] initWithDictionay:responseObject];
             [User setCurrentUser:user];
             self.loginCompletion(user, nil);
@@ -66,7 +67,26 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 - (void)homeTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
     [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-        NSLog(@"Result %@", responseObject);
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
+- (void)userTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+//        NSLog(@"Result %@", responseObject);
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
+- (void)mentionTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+//        NSLog(@"Result %@", responseObject);
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);
@@ -107,7 +127,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     NSString *postUrl = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", [params objectForKey:@"id"]];
     [self POST:postUrl parameters:nil constructingBodyWithBlock:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success retweet");
-        NSLog(@"Result %@", responseObject);
+//        NSLog(@"Result %@", responseObject);
         Tweet *tweet = [[Tweet alloc] initWithDicionay:responseObject];
         success(operation, tweet);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

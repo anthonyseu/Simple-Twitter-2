@@ -83,7 +83,7 @@
 }
 
 - (void)onCancelButton {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView

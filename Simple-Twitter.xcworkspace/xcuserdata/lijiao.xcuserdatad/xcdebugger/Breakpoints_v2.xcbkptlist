@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Simple-Twitter/TweetsDetailUViewController.m"
-            timestampString = "445246124.682852"
+            filePath = "Simple-Twitter/TweetsTableCell.m"
+            timestampString = "445847169.396637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "-onFavoriteButton:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-onProfileImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
