@@ -2,7 +2,7 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: 8
+Time spent: 10
 
 ### Project Requirements
 
@@ -16,7 +16,7 @@ Time spent: 8
 - [x] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Optional: Implement the paging view for the user description.
 - [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-- [ ] Optional: Pulling down the profile page should blur and resize the header image.
+- [x] Optional: Pulling down the profile page should blur and resize the header image.
 
 #### Home Timeline
 - [x] Tapping on a user image should bring up that user's profile page
