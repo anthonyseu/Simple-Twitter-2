@@ -34,17 +34,9 @@
     
     User *user = [User currentUser];
     if (user != nil) {
-        TweetsViewController *controller = [[TweetsViewController alloc] init];
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
-        nvc.navigationBar.translucent = NO;
-        SlideMenuViewController *menuVc = [[SlideMenuViewController alloc] init];
-        SlideViewController *slideVc = [[SlideViewController alloc] init];
-        menuVc.delegate = controller;
-        slideVc.mainViewController = nvc;
-        slideVc.slideMenuController = menuVc;
-        self.window.rootViewController = slideVc;
+        [self userDidLogin];
     } else {
-        self.window.rootViewController = [[LoginViewController alloc] init];
+        [self userDidLogout];
     }
     
     [self.window makeKeyAndVisible];
@@ -56,8 +48,15 @@
 }
 
 - (void)userDidLogin {
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
-    self.window.rootViewController = nvc;
+    TweetsViewController *controller = [[TweetsViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
+    nvc.navigationBar.translucent = NO;
+    SlideMenuViewController *menuVc = [[SlideMenuViewController alloc] init];
+    SlideViewController *slideVc = [[SlideViewController alloc] init];
+    menuVc.delegate = controller;
+    slideVc.mainViewController = nvc;
+    slideVc.slideMenuController = menuVc;
+    self.window.rootViewController = slideVc;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

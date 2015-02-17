@@ -71,6 +71,10 @@
         [cell.userProfileImageView setImageWithURL:[NSURL URLWithString:self.user.profileImageUrl]];
         cell.userNameLabel.text = self.user.name;
         cell.userScreenNameLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenname];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.user.backgroundImageUrl]]];
+        UIImageView *backgrond = [[UIImageView alloc] initWithImage:image];
+        cell.backgroundView = backgrond;
         return cell;
     } else if (indexPath.section == 1){
         UserStatsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserStatsCell" forIndexPath:indexPath];
@@ -82,6 +86,7 @@
     } else {
         TweetsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetsTableCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        Tweet *tweet = self.tweetsArray[indexPath.row];
         cell.tweet = self.tweetsArray[indexPath.row];
         
         cell.replyButton.tag = indexPath.row;
@@ -92,7 +97,7 @@
         } else {
             cell.retweetButton.tag = indexPath.row;
             [cell.retweetButton addTarget:self action:@selector(onCellRetweetButton:) forControlEvents:UIControlEventTouchUpInside];
-            if (cell.tweet.retweetOn) {
+            if (tweet.retweetOn) {
                 [cell.retweetButton setImage:[UIImage imageNamed:@"retweet_on.png"] forState:nil];
             } else {
                 [cell.retweetButton setImage:[UIImage imageNamed:@"retweet.png"] forState:nil];
@@ -101,7 +106,7 @@
         
         cell.favoriteButton.tag = indexPath.row;
         [cell.favoriteButton addTarget:self action:@selector(onCellFavoriteButton:) forControlEvents:UIControlEventTouchUpInside];
-        if (cell.tweet.favoriteOn) {
+        if (tweet.favoriteOn) {
             [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite_on.png"] forState:nil];
         } else {
             [cell.favoriteButton setImage:[UIImage imageNamed:@"favorite.png"] forState:nil];
@@ -121,6 +126,7 @@
     Tweet *tweet = self.tweetsArray[indexPath.row];
     TweetsDetailUViewController *vc = [[TweetsDetailUViewController alloc] init];
     vc.tweet = tweet;
+    vc.user = self.user;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }

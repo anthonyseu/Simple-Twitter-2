@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "User.h"
 
 @protocol TweetsDetailDelegate <NSObject>
 - (void)didFavoriteTweet:(Tweet *)tweet;
@@ -16,5 +17,6 @@
 
 @interface TweetsDetailUViewController : UIViewController
 @property (nonatomic, strong) Tweet *tweet;
+@property (nonatomic, strong) User *user;
 @property (nonatomic, weak) id<TweetsDetailDelegate> delegate;
 @end

@@ -52,13 +52,21 @@
     self.retweetCountLabelView.text = [NSString stringWithFormat:@"%d",self.tweet.retweetCount];
     self.favoriteCountLabelView.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     
-    if (self.tweet.favoriteOn) {
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_on.png"] forState:nil];
+    
+    if ([self.user isEqual:[User currentUser]]) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet.png"] forState:nil];
+        [self.retweetButton setEnabled:NO];
     }
     
     if (self.tweet.retweetOn) {
         [self.retweetButton setImage:[UIImage imageNamed:@"retweet_on.png"] forState:nil];
     }
+
+    if (self.tweet.favoriteOn) {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favorite_on.png"] forState:nil];
+    }
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -31,7 +31,6 @@ static CGFloat kSlideMenuViewWidth = 245.0;
         frame.size.width = kSlideMenuViewWidth;
         self.slideMenuController.view.frame = frame;
         [self.view insertSubview:self.slideMenuController.view belowSubview:self.mainViewController.view];
-        
     }
     
     self.isMenuShowing = NO;

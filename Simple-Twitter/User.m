@@ -31,6 +31,7 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
         self.tweetsCount = [dictionary[@"statuses_count"] integerValue];
         self.followerCount = [dictionary[@"followers_count"] integerValue];
         self.followingCount = [dictionary[@"friends_count"] integerValue];
+        self.backgroundImageUrl = dictionary[@"profile_background_image_url"];
     }
     return self;
 }
