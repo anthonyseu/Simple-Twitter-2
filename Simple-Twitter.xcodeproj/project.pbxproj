@@ -19,8 +19,6 @@
 		3694ECB21A91DE3600490032 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECB01A91DE3600490032 /* UserProfileViewController.xib */; };
 		3694ECB61A92DAA000490032 /* UserStatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECB41A92DAA000490032 /* UserStatsCell.m */; };
 		3694ECB71A92DAA000490032 /* UserStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECB51A92DAA000490032 /* UserStatsCell.xib */; };
-		3694ECBB1A92DAE000490032 /* ProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */; };
-		3694ECBC1A92DAE000490032 /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */; };
 		369FB6851A87FB8000EA0CAE /* TweetsDetailUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FB6831A87FB8000EA0CAE /* TweetsDetailUViewController.m */; };
 		369FB6861A87FB8000EA0CAE /* TweetsDetailUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369FB6841A87FB8000EA0CAE /* TweetsDetailUViewController.xib */; };
 		369FB68A1A87FBBD00EA0CAE /* ComposeTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FB6881A87FBBD00EA0CAE /* ComposeTweetViewController.m */; };
@@ -70,9 +68,6 @@
 		3694ECB31A92DAA000490032 /* UserStatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatsCell.h; sourceTree = "<group>"; };
 		3694ECB41A92DAA000490032 /* UserStatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStatsCell.m; sourceTree = "<group>"; };
 		3694ECB51A92DAA000490032 /* UserStatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserStatsCell.xib; sourceTree = "<group>"; };
-		3694ECB81A92DAE000490032 /* ProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCell.h; sourceTree = "<group>"; };
-		3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCell.m; sourceTree = "<group>"; };
-		3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
 		369FB6821A87FB8000EA0CAE /* TweetsDetailUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsDetailUViewController.h; sourceTree = "<group>"; };
 		369FB6831A87FB8000EA0CAE /* TweetsDetailUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsDetailUViewController.m; sourceTree = "<group>"; };
 		369FB6841A87FB8000EA0CAE /* TweetsDetailUViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsDetailUViewController.xib; sourceTree = "<group>"; };
@@ -235,9 +230,6 @@
 				3694ECB31A92DAA000490032 /* UserStatsCell.h */,
 				3694ECB41A92DAA000490032 /* UserStatsCell.m */,
 				3694ECB51A92DAA000490032 /* UserStatsCell.xib */,
-				3694ECB81A92DAE000490032 /* ProfileHeaderCell.h */,
-				3694ECB91A92DAE000490032 /* ProfileHeaderCell.m */,
-				3694ECBA1A92DAE000490032 /* ProfileHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -348,7 +340,6 @@
 				369FB6861A87FB8000EA0CAE /* TweetsDetailUViewController.xib in Resources */,
 				369FB68B1A87FBBD00EA0CAE /* ComposeTweetViewController.xib in Resources */,
 				3694ECB71A92DAA000490032 /* UserStatsCell.xib in Resources */,
-				3694ECBC1A92DAE000490032 /* ProfileHeaderCell.xib in Resources */,
 				3694ECB21A91DE3600490032 /* UserProfileViewController.xib in Resources */,
 				365E53121A8696E800339791 /* Images.xcassets in Resources */,
 				36A9E8781A86A9CE0072205C /* LoginViewController.xib in Resources */,
@@ -407,7 +398,6 @@
 				3694ECB61A92DAA000490032 /* UserStatsCell.m in Sources */,
 				365E530A1A8696E800339791 /* AppDelegate.m in Sources */,
 				369FB68A1A87FBBD00EA0CAE /* ComposeTweetViewController.m in Sources */,
-				3694ECBB1A92DAE000490032 /* ProfileHeaderCell.m in Sources */,
 				36A9E8821A86FAD30072205C /* User.m in Sources */,
 				36A9E87F1A86FAB60072205C /* Tweet.m in Sources */,
 				365E53071A8696E800339791 /* main.m in Sources */,
